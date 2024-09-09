@@ -1,4 +1,4 @@
-Job Application Management API
+#Job Application Management API
 Overview
 This is a backend RESTful API built with Node.js, Express, and Prisma for managing job applications. It allows the creation of jobs, adding applicants, scheduling interviews, and managing job application statuses. Authentication is implemented using JWT.
 
