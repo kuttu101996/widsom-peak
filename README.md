@@ -9,6 +9,28 @@
   <li>Logging with Winston</li>
 </ul>
 <br/>
+<h3>Tech Stack</h3>
+<ul>
+  <li>Node.js, Express, Prisma</li>
+  <li>JWT for authentication</li>
+  <li>MySQL or PostgreSQL</li>
+  <li>bcrypt.js for password hashing</li>
+  <li>Winston for logging</li>
+</ul>
+<br />
+<h3>Requirements</h3>
+<ul>
+  <li>Node.js</li>
+  <li>MySQL or PostgreSQL</li>
+</ul>
+<br/>
+<h3>Setup</h3>
+<ol>
+  <li>
+    <p>Clone the repository:</p>
+    `code`
+  </li>
+</ol>
 Overview
 This is a backend RESTful API built with Node.js, Express, and Prisma for managing job applications. It allows the creation of jobs, adding applicants, scheduling interviews, and managing job application statuses. Authentication is implemented using JWT.
 
