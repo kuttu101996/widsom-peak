@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// prisma/schema.prisma
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Job {
+  id          Int         @id @default(autoincrement())
+  title       String      @db.VarChar(255)
+  department  String      @db.VarChar(100)
+  description String      @db.Text
+  openDate    DateTime    @db.DateTime()
+  createdAt   DateTime    @default(now()) @db.DateTime() // Record creation time
+  updatedAt   DateTime    @updatedAt @db.DateTime() // Auto-update time
+  applicants  Applicant[]
+}
+
+model Applicant {
+  id         Int         @id @default(autoincrement())
+  jobId      Int
+  job        Job         @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  name       String      @db.VarChar(255)
+  email      String      @unique @db.VarChar(255)
+  resumeLink String      @db.VarChar(255)
+  status     Status      @default(Pending)
+  interviews Interview[]
+  createdAt  DateTime    @default(now()) @db.DateTime()
+  updatedAt  DateTime    @updatedAt @db.DateTime()
+}
+
+model Interview {
+  id            Int       @id @default(autoincrement())
+  applicantId   Int
+  applicant     Applicant @relation(fields: [applicantId], references: [id], onDelete: Cascade)
+  interviewDate DateTime  @db.DateTime()
+  interviewer   String    @db.VarChar(255)
+  createdAt     DateTime  @default(now()) @db.DateTime()
+  updatedAt     DateTime  @updatedAt @db.DateTime()
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255) // Store hashed passwords
+  role      Role     @default(USER) // Optional: User roles
+  token     String?  @db.VarChar(255) // Optional: Storing active token
+  createdAt DateTime @default(now()) @db.DateTime()
+  updatedAt DateTime @updatedAt @db.DateTime()
+}
+
+enum Status {
+  Pending
+  Interviewed
+  Rejected
+  Hired
+}
+
+enum Role {
+  ADMIN
+  USER
+}
