@@ -1,7 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
-const connection = require("./db.config");
 const interviewRoute = require("./routes/interview.route");
 const jobRoute = require("./routes/job.route");
 const applicantRoute = require("./routes/applicant.route");
@@ -28,8 +27,7 @@ app.use((err, req, res, next) => {
 
 app.listen(process.env.PORT, async () => {
   try {
-    await connection;
-    console.log("Server at " + process.env.PORT);
+    console.log("Server running at " + process.env.PORT);
   } catch (error) {
     console.log(error);
   }
