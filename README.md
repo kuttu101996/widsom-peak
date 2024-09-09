@@ -28,8 +28,9 @@
 <ol>
   <li>
     <p>Clone the repository:</p>
-    ```javascript
-    abc
+    ```sh
+    git clone https://github.com/your-repo/job-application-api.git
+    cd job-application-api
     ```
   </li>
 </ol>
