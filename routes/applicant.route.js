@@ -96,16 +96,20 @@ applicantRoute.patch(
   }
 );
 
-app.delete("/:applicantId", authenticateToken, async (req, res, next) => {
-  const { applicantId } = req.params;
+applicantRoute.delete(
+  "/:applicantId",
+  authenticateToken,
+  async (req, res, next) => {
+    const { applicantId } = req.params;
 
-  try {
-    await prisma.applicant.delete({ where: { id: parseInt(applicantId) } });
-    res.status(204).send();
-  } catch (error) {
-    logger.error("Error deleting applicant: ", error);
-    next(new AppError("Error deleting applicant", 500));
+    try {
+      await prisma.applicant.delete({ where: { id: parseInt(applicantId) } });
+      res.status(204).send();
+    } catch (error) {
+      logger.error("Error deleting applicant: ", error);
+      next(new AppError("Error deleting applicant", 500));
+    }
   }
-});
+);
 
 module.exports = applicantRoute;
