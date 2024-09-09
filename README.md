@@ -30,6 +30,7 @@
     <p>Clone the repository:</p>
     ```javascript
     abc
+    ```
   </li>
 </ol>
 Overview
