@@ -1,5 +1,5 @@
 const applicantRoute = require("express").Router();
-const { body, validationResult } = require("express-validator");
+const { body, validationResult, query } = require("express-validator");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const winston = require("winston");
