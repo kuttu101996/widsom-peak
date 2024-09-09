@@ -20,9 +20,9 @@ model Job {
   title       String      @db.VarChar(255)
   department  String      @db.VarChar(100)
   description String      @db.Text
-  openDate    DateTime    @db.DateTime()
-  createdAt   DateTime    @default(now()) @db.DateTime() // Record creation time
-  updatedAt   DateTime    @updatedAt @db.DateTime() // Auto-update time
+  openDate    DateTime
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
   applicants  Applicant[]
 }
 
@@ -35,28 +35,28 @@ model Applicant {
   resumeLink String      @db.VarChar(255)
   status     Status      @default(Pending)
   interviews Interview[]
-  createdAt  DateTime    @default(now()) @db.DateTime()
-  updatedAt  DateTime    @updatedAt @db.DateTime()
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
 }
 
 model Interview {
   id            Int       @id @default(autoincrement())
   applicantId   Int
   applicant     Applicant @relation(fields: [applicantId], references: [id], onDelete: Cascade)
-  interviewDate DateTime  @db.DateTime()
+  interviewDate DateTime
   interviewer   String    @db.VarChar(255)
-  createdAt     DateTime  @default(now()) @db.DateTime()
-  updatedAt     DateTime  @updatedAt @db.DateTime()
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique @db.VarChar(255)
-  password  String   @db.VarChar(255) // Store hashed passwords
-  role      Role     @default(USER) // Optional: User roles
-  token     String?  @db.VarChar(255) // Optional: Storing active token
-  createdAt DateTime @default(now()) @db.DateTime()
-  updatedAt DateTime @updatedAt @db.DateTime()
+  password  String   @db.VarChar(255)
+  role      Role     @default(USER)
+  token     String?  @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum Status {
