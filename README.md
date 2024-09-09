@@ -8,7 +8,6 @@
   <li>Input validation & error handling</li>
   <li>Logging with Winston</li>
 </ul>
-<br/>
 <h3>Tech Stack</h3>
 <ul>
   <li>Node.js, Express, Prisma</li>
@@ -17,13 +16,11 @@
   <li>bcrypt.js for password hashing</li>
   <li>Winston for logging</li>
 </ul>
-<br />
 <h3>Requirements</h3>
 <ul>
   <li>Node.js</li>
   <li>MySQL or PostgreSQL</li>
 </ul>
-<br/>
 <h3>Setup</h3>
 <ol>
   <li>
