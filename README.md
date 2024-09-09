@@ -28,7 +28,8 @@
 <ol>
   <li>
     <p>Clone the repository:</p>
-    `code`
+    ```javascript
+    abc
   </li>
 </ol>
 Overview
