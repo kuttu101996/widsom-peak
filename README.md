@@ -1,4 +1,14 @@
 <h1>Job Application Management API</h1>
+<p>A RESTful API built with Node.js, Express, and Prisma for managing job positions, applicants, and interviews, with JWT authentication and robust error handling.</p>
+<h3>Features</h3>
+<ul>
+  <li>CRUD operations for jobs and applicants</li>
+  <li>Schedule interviews</li>
+  <li>JWT-based authentication (register/login)</li>
+  <li>Input validation & error handling</li>
+  <li>Logging with Winston</li>
+</ul>
+<br/>
 Overview
 This is a backend RESTful API built with Node.js, Express, and Prisma for managing job applications. It allows the creation of jobs, adding applicants, scheduling interviews, and managing job application statuses. Authentication is implemented using JWT.
 
